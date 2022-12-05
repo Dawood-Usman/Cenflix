@@ -26,10 +26,11 @@
                 <div class="users-data">
                     <div class="filters">
                         <div class="selectBox">
-                            <select name="movies" id="movies">
-                                <option value="3-Idiots">3-Idiots</option>
-                                <option value="Maula Jatt">Maula Jatt</option>
-                                <option value="PK">PK</option>
+                            <select name="movies" id="movies" onchange="myFunction2()">
+                                <option value="">Running Movies</option>
+                                <% runningMovies.forEach(function(movie){ %>
+                                    <option value="<%=movie.MovieName%>"><%=movie.MovieName%></option>
+                                <%})%>
                             </select>
                         </div>
                         <div class="searchBox">
@@ -46,7 +47,6 @@
                             <th>SeatNo</th>
                             <th>TicketPrice</th>
                         </tr>
-
 
                         <% let i=0; %>
                             <% bookingDetails.forEach(function(movieBooking){ %>

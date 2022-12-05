@@ -44,9 +44,14 @@
                         <%=movie.MovieIndustry%>
                     </div>
                 </div>
-                <a class="trailer-btn" href="<%=movie.MovieTrailer%>" target="_blank">Watch Trailer &nbsp; <i
-                        class="fa-solid fa-play"></i>
+                <div class="newBtn">
+                    <a class="trailer-btn" href="<%=movie.MovieTrailer%>" target="_blank">Watch Trailer &nbsp; <i
+                            class="fa-solid fa-play"></i>
+                    </a>
+                    <a class="trailer-btn" href="/user/movieReviews/?id=<%=movie.MovieID%>&poster=<%=movie.MoviePoster%>">Watch Reviews &nbsp; <i
+                        class="fa-solid fa-comment"></i>
                 </a>
+                </div>
             </div>
         </div>
     </div>

@@ -7,20 +7,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/user/printTicket.css">
     <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #141414;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .instructions-note {
+            font-size: larger;
+            margin: 2.5rem auto;
+            width: 70%;
+            color: #e5e5e5;
+            text-align: center;
+        }
+
+        .ticket-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+
+        table {
+            color: #e5e5e5;
+            width: 100%;
+            text-align: center;
+            font-size: xx-large;
+            background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8));
+        }
+
+        td {
+            padding: 0.4em;
+        }
+
+        thead {
+            background-color: #e50914;
+            font-weight: bolder;
+        }
+
+    </style>
 </head>
 
 <body>
-    <nav class="navBar">
-        <img src="/images/resources/cenflixLogo.png" alt="" height="30px" width="120px">
-        <div class="navLinks">
-            <a href="/user/homePage">Home</a>
-            <a href="/user/aboutUs">About Us</a>
-            <a href="/user/contactUs">Contact Us</a>
-            <a href="/user/logOut">LogOut</a>
-        </div>
-    </nav>
     <div class="instructions-note">
-        <span><b>Note: You can Download your movie ticket in Pdf form from here. You are requested to bring your ticket
+        <span><b>Note: You are requested to bring your ticket
                 along with yourself in soft or hard form & reach at cinema atleast 30 minutes before movie show,
                 otherwise your tickets will be cancelled. </b></span>
     </div>
@@ -64,10 +107,6 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-    <div class="btn">
-        <a href="/user/printPdfTicket/?MovieID=<%=MovieData.MovieID%>&seats=<%=seats%>" class="backBtn"
-            target="_blank">Print Ticket</a>
     </div>
 </body>
 

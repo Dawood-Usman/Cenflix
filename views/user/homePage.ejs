@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="/js/homePageSearch.js" defer></script>
     <title>Document</title>
 </head>
 
@@ -61,46 +62,47 @@
     <section class="filters">
         <div class="movieFilters">
             <div class="selectOption">
-                <select name="movieIndustry" class="movieIndustry">
+                <select name="movieIndustry" class="movieIndustry" id="movieIndustry">
                     <option selected="selected" value="">By Industry</option>
-                    <option value="word">BollyWood</option>
-                    <option value="hashtag">HollyWood</option>
-                    <option value="hashtag">LollyWood</option>
+                    <option value="BollyWood">BollyWood</option>
+                    <option value="HollyWood">HollyWood</option>
+                    <option value="LollyWood">LollyWood</option>
                 </select>
             </div>
+
             <div class="selectOption">
-                <select name="movieGenre" class="movieGenre">
+                <select name="movieGenre" class="movieGenre" id="movieGenre">
                     <option selected="selected" value="">By Genre</option>
-                    <option value="1">Action</option>
-                    <option value="3">Romance</option>
-                    <option value="4">thriller</option>
-                    <option value="8">Comedy</option>
-                    <option value="9">Adventure</option>
-                    <option value="10">Horror</option>
-                    <option value="11">Adult</option>
-                    <option value="12">Drama</option>
-                    <option value="13">Sports</option>
-                    <option value="14">Family</option>
-                    <option value="15">Music</option>
-                    <option value="16">Crime</option>
-                    <option value="17">Animation</option>
-                    <option value="18">Sci-Fi</option>
-                    <option value="19">Biography</option>
-                    <option value="20">Documentary</option>
-                    <option value="21">History</option>
-                    <option value="22">War</option>
-                    <option value="23">Mystery</option>
-                    <option value="24">Fantasy </option>
-                    <option value="25">Western </option>
-                    <option value="26">Psycho</option>
+                    <option value="Action">Action</option>
+                    <option value="Romance">Romance</option>
+                    <option value="thriller">thriller</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Adult">Adult</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Family">Family</option>
+                    <option value="Music">Music</option>
+                    <option value="Crime">Crime</option>
+                    <option value="Animation">Animation</option>
+                    <option value="Sci-Fi">Sci-Fi</option>
+                    <option value="Biography">Biography</option>
+                    <option value="Documentary">Documentary</option>
+                    <option value="History">History</option>
+                    <option value="War">War</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Fantasy">Fantasy </option>
+                    <option value="Western">Western </option>
+                    <option value="Psycho">Psycho</option>
                 </select>
             </div>
 
             <div class="selectOption">
                 <form role="search" id="form">
-                    <input type="search" id="query" name="q" placeholder="Search..."
+                    <input type="search" id="myInput" name="q" onkeyup="myFunction()" placeholder="Search..."
                         aria-label="Search through site content">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <button type="submit" disabled><i class="fa fa-search"></i></button>
                 </form>
             </div>
         </div>
@@ -108,9 +110,9 @@
     </section>
 
     <section class="movies">
-        <div class="movieCards">
+        <div class="movieCards" id="myTable">
             <% movieData.forEach(function(movie){ %>
-                <div class="card">
+                <div class="card" class="tr">
                     <img src="/images/movies/<%=movie.MoviePoster%>" alt="Avatar" style="width:100%; height: 70%;">
                     <div class="container">
                         <h3><b>

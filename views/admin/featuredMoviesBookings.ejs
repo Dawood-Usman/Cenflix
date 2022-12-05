@@ -25,10 +25,11 @@
                 <div class="users-data">
                     <div class="filters">
                         <div class="selectBox">
-                            <select name="movies" id="movies">
-                                <option value="3-Idiots">3-Idiots</option>
-                                <option value="Maula Jatt">Maula Jatt</option>
-                                <option value="PK">PK</option>
+                            <select name="movies" id="movies" onchange="myFunction2()">
+                                <option value="">Featured Movies</option>
+                                <% runningMovies.forEach(function(movie){ %>
+                                    <option value="<%=movie.MovieName%>"><%=movie.MovieName%></option>
+                                <%})%>
                             </select>
                         </div>
                         <div class="searchBox">
@@ -45,32 +46,32 @@
                             <th>SeatNo</th>
                             <th>TicketPrice</th>
                         </tr>
-
-                        <% for(let i=0; i<20; i++){ %>
-                            <tr>
-                                <td>
-                                    <%=i+1%>
-                                </td>
-                                <td>
-                                    Dawood Usman
-                                </td>
-                                <td>
-                                    3-idiots
-                                </td>
-                                <td>
-                                    26-09-2022
-                                </td>
-                                <td>
-                                    10:45pm
-                                </td>
-                                <td>
-                                    R1C4
-                                </td>
-                                <td>
-                                    500rs
-                                </td>
-                            </tr>
-                            <% } %>
+                        <% let i=0; %>
+                            <% bookingDetails.forEach(function(movieBooking){ %>
+                                <tr>
+                                    <td>
+                                        <%=++i%>
+                                    </td>
+                                    <td>
+                                        <%=movieBooking.UserName%>
+                                    </td>
+                                    <td>
+                                        <%=movieBooking.MovieName%>
+                                    </td>
+                                    <td>
+                                        <%=movieBooking.ShowDate%>
+                                    </td>
+                                    <td>
+                                        <%=movieBooking.ShowTime%>
+                                    </td>
+                                    <td>
+                                        <%=movieBooking.BookedSeats%>
+                                    </td>
+                                    <td>
+                                        <%=movieBooking.TotalAmount%>
+                                    </td>
+                                </tr>
+                                <% }) %>
                     </table>
                 </div>
 

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/user/movieReviews.css">
+    <title>Cenflix</title>
+</head>
+
+<body>
+    <nav class="navBar">
+        <img src="/images/resources/cenflixLogo.png" alt="" height="30px" width="120px">
+        <div class="navLinks">
+            <a href="/user/homePage">Home</a>
+            <a href="/user/aboutUs">About Us</a>
+            <a href="/user/contactUs">Contact Us</a>
+            <a href="/user/logOut">LogOut</a>
+        </div>
+    </nav>
+    <section>
+        <div class="outer">
+            <div class="review-section">
+                <form action="/user/getMovieRating/?id=<%=MovieID%>&poster=<%=MoviePoster%>" method="POST">
+                    <h2>How Was Your Experience Of This Movie?</h2>
+                    <div class="rating">
+                        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                        <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                        <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                        <input type="radio" name="rating" value="1" id="1" required><label for="1">☆</label>
+                    </div>
+                    <div class="btn">
+                        <input type="submit" value="Submit" class="Btn">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-fluid px-1 py-5 mx-auto">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-md-10 col-12 text-center mb-5">
+                    <div class="card">
+                        <div class="row justify-content-left d-flex">
+                            <div class="col-md-4 d-flex flex-column">
+                                <div class="rating-box">
+                                    <img src="/images/movies/<%=MoviePoster%>" alt=""
+                                        style="width: 100%; height: 100%;">
+                                    <!-- <h1 class="pt-4">4.0</h1>
+                                    <p class="">out of 5</p> -->
+                                </div>
+                                <div>
+                                    <span class="fa fa-star star-active mx-1"></span>
+                                    <span class="fa fa-star star-active mx-1"></span>
+                                    <span class="fa fa-star star-active mx-1"></span>
+                                    <span class="fa fa-star star-active mx-1"></span>
+                                    <span class="fa fa-star star-inactive mx-1"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="rating-bar0 justify-content-center">
+                                    <table class="text-left mx-auto">
+                                        <tr>
+                                            <td class="rating-label">Excellent</td>
+                                            <td class="rating-bar">
+                                                <div class="bar-container">
+                                                    <div class="bar-5" style="width:<%= rating5.get("RatingNo")%>%;">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-right">
+                                                <%=rating5.get("RatingNo")%>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="rating-label">Good</td>
+                                            <td class="rating-bar">
+                                                <div class="bar-container">
+                                                    <div class="bar-4" style="width:<%= rating4.get("RatingNo")%>%;">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-right">
+                                                <%=rating4.get("RatingNo")%>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="rating-label">Average</td>
+                                            <td class="rating-bar">
+                                                <div class="bar-container">
+                                                    <div class="bar-3" style="width:<%= rating3.get("RatingNo")%>%;">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-right">
+                                                <%=rating3.get("RatingNo")%>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="rating-label">Poor</td>
+                                            <td class="rating-bar">
+                                                <div class="bar-container">
+                                                    <div class="bar-2" style="width:<%= rating2.get("RatingNo")%>%;">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-right">
+                                                <%=rating2.get("RatingNo")%>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="rating-label">Terrible</td>
+                                            <td class="rating-bar">
+                                                <div class="bar-container">
+                                                    <div class="bar-1" style="width:<%= rating1.get("RatingNo")%>%;">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-right">
+                                                <%=rating1.get("RatingNo")%>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="comment-box">
+            <div class="my-comment">
+                <h2>Add A Comment Below!</h2>
+                <form action="/user/addComment/?id=<%=MovieID%>&poster=<%=MoviePoster%>" method="POST">
+                    <input type="text" name="comment" id="" placeholder="Write Here..." required>
+                    <input type="submit" value="Post">
+                </form>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section>
+        <div class="container bootstrap snippets bootdey">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-comment">
+                        <hr />
+                        <ul class="comments">
+                            <% comments.forEach(function(msg){ %>
+                            <li class="clearfix">
+                                <img src="https://bootdey.com/img/Content/user_3.jpg" class="avatar" alt="">
+                                <div class="post-comments">
+                                    <p class="meta"> <%= msg.Time%> <a href="#"><%= msg.UserName%></a> says : <i class="pull-right"><a
+                                                href="#"><small>Reply</small></a></i></p>
+                                    <p>
+                                        <%= msg.Comment%>
+                                    </p>
+                                </div>
+                            </li>
+                            <%})%>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

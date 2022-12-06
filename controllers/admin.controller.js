@@ -490,7 +490,7 @@ const displayPaymentDetails = (req, res) => {
     //select MovieName, ShowDate, ShowTime, TotalAmount as TicketPrice, count(MovieID)As TotalTickets, sum(TotalAmount)As TotalAmount from bookings group by MovieID; 
     sequelize.sync().then(() => {
         booking.findAll({
-            attributes: ['MovieName', 'ShowDate', 'ShowTime', ['TotalAmount', 'TicketPrice'], [sequelize.fn('count', sequelize.col('MovieID')), 'BookedSeats'], [sequelize.fn('sum', sequelize.col('TotalAmount')), 'TotalAmount']],
+            attributes: ['MovieID','MovieName', 'ShowDate', 'ShowTime', ['TotalAmount', 'TicketPrice'], [sequelize.fn('count', sequelize.col('MovieID')), 'BookedSeats'], [sequelize.fn('sum', sequelize.col('TotalAmount')), 'TotalAmount']],
             group: ["MovieID"],
             where: {
                 BookingStatus: "Confirmed",
